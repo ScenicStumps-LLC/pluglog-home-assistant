@@ -1,0 +1,52 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect PlugLog",
+        "description": "Make a key on {page} and paste it here. It's read-only: it can't change anything in PlugLog, and Home Assistant sees only the vehicles you pick there.",
+        "data": {
+          "api_key": "Key",
+          "url": "PlugLog address"
+        },
+        "data_description": {
+          "api_key": "Starts with plk_ha_. PlugLog shows it once, when you make it.",
+          "url": "Leave as it is unless you run a PlugLog test server."
+        }
+      },
+      "reauth_confirm": {
+        "title": "PlugLog needs a new key",
+        "description": "The key was revoked on pluglog.app, or no longer works. Make a new one on pluglog.app › Integrations › Home Assistant and paste it here.",
+        "data": {
+          "api_key": "Key"
+        }
+      }
+    },
+    "error": {
+      "invalid_key_format": "That isn't a PlugLog Home Assistant key: it starts with plk_ha_. Copy it again from pluglog.app.",
+      "invalid_auth": "PlugLog didn't accept that key. It may have been revoked: make a new one on pluglog.app.",
+      "not_included": "Your PlugLog plan doesn't include Home Assistant. See pluglog.app › Integrations › Home Assistant.",
+      "cannot_connect": "PlugLog couldn't be reached. Check Home Assistant's internet connection and try again."
+    },
+    "abort": {
+      "already_configured": "This PlugLog account is already added.",
+      "reauth_successful": "The new key works.",
+      "wrong_account": "That key is for another PlugLog account."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery": { "name": "Battery" },
+      "range": { "name": "Range" },
+      "charge_power": { "name": "Charge power" },
+      "time_to_full": { "name": "Time to full" },
+      "charge_limit": { "name": "Charge limit" },
+      "charge_energy_added": { "name": "Energy added" },
+      "speed": { "name": "Speed" },
+      "last_updated": { "name": "Last updated" }
+    },
+    "binary_sensor": {
+      "charging": { "name": "Charging" },
+      "driving": { "name": "Driving" }
+    }
+  }
+}
